@@ -1,28 +1,26 @@
 /* Don't edit the css bellow! */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
     font-family: "Montserrat", sans-serif;
     overflow-x: hidden; /* Added to disable side scrolling */
-}
-
-/* Other CSS rules remain the same */
-
-*{
-    padding: 0;
-    margin: 0;
-    
-}
-::-webkit-scrollbar{
-    width: 0px;
-}
-::-webkit-scrollbar-thumb{
-    border-radius: 0px;
-}
-  body {
     background-color: #f9f9f9;
     color: #030303;
     height: 100vh;
-  }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+}
 
 /* Header/ Nav Styling */
 header {
@@ -46,7 +44,8 @@ header {
     padding-left: 40px;
     color: #e26600;
 }
-.nav a{
+
+.nav a {
     color: #e26600;
 }
 
@@ -61,9 +60,10 @@ header {
     margin-right: 20px;
     font-size: 18px;
 }
-.nav-items a{
-  color: #ff9100;
-  text-decoration: none;
+
+.nav-items a {
+    color: #ff9100;
+    text-decoration: none;
 }
 
 .nav-items ul li:last-child {
@@ -71,50 +71,71 @@ header {
 }
 
 .nav-items ul a:hover {
-    color: #e26600; 
+    color: #e26600;
     cursor: pointer;
     text-decoration: underline;
 }
-#btn-profile{
-  background-color: #ff7b00;
-  color: #000000;
-  padding: 10px 15px 10px 15px;
-  border-radius: 5px;
-}
-#btn-profile:hover{
-  background-color: #d17600;
-  color: #ffffff;
-  text-decoration: none;
 
+#btn-profile {
+    background-color: #ff7b00;
+    color: #000000;
+    padding: 10px 15px;
+    border-radius: 5px;
 }
+
+#btn-profile:hover {
+    background-color: #d17600;
+    color: #ffffff;
+    text-decoration: none;
+}
+
 /* End Of Header Styles */
-.main-content{
+
+.main-content {
     width: 100%;
     height: 100%;
     padding: 5px 100px 0px 150px;
 }
-.page-name{
+
+.page-name {
     padding-top: 20px;
     padding-left: 50px;
 }
 
-.page-name span{
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff8800;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.1);
+}
+
+.page-name span {
     color: #ff7300;
     font-weight: bolder;
 }
-.greetings{
+
+.greetings {
     padding: 50px;
     font-weight: bolder;
 }
-.cols-warper{
+
+.cols-warper {
     display: flex;
     flex-wrap: wrap;
 }
+
 .column {
     flex: 1;
     box-sizing: border-box;
-
 }
+
 .column:nth-child(1) {
     flex: 0.3;
     padding-left: 50px;
@@ -123,11 +144,13 @@ header {
 .column:nth-child(2) {
     flex: 2;
 }
-.fa-sun-cloud{
+
+.fa-sun-cloud {
     color: #ff7300;
     font-size: 25px;
 }
-.cols-style{
+
+.cols-style {
     background-color: #fff;
     border-radius: 5px;
     padding: 20px 10px 20px 10px;
@@ -136,30 +159,36 @@ header {
     margin: 20px;
     cursor: pointer;
 }
-.usr-name{
+
+.usr-name {
     font-weight: bolder;
 }
-.edit-profile{
+
+.edit-profile {
     font-weight: bolder;
 }
-.btn-active{
+
+.btn-active {
     color: #ff7300;
 }
-.cols-main-style{
+
+.cols-main-style {
     padding-left: 20px;
 }
-.user-profile{
+
+.user-profile {
     font-size: 24px;
 }
 
-.main-details{
+.main-details {
     margin-top: 20px;
     font-size: 18px;
 }
-.details{
+
+.details {
     margin: 10px 5px 10px 0px;
 }
-/* Edit Profile Form Styling */
+
 /* Edit Profile Form Styling */
 #edit-profile form {
     background-color: #fff;
@@ -181,8 +210,8 @@ header {
     margin-bottom: 10px;
     border: 1px solid;
     border-radius: 4px;
-    transition: border-color 0.3s ease-in-out; /* Add transition for smoother effect */
-    border-color: #ff8800;;
+    transition: border-color 0.3s ease-in-out;
+    border-color: #ff8800;
 }
 
 /* Add focus styles */
@@ -198,21 +227,24 @@ header {
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out; /* Add transition for smoother effect */
+    transition: background-color 0.3s ease-in-out;
     border-color: #ff8800;
 }
 
 #edit-profile form input[type="submit"]:hover {
     background-color: #844000;
 }
-.details{
+
+.details {
     font-weight: bold;
     color: #ff8800;
 }
-.details-info{
+
+.details-info {
     font-weight: 400;
     color: #555;
 }
+
 #edit-profile form label,
 #edit-profile form input[type="submit"] {
     display: block;
@@ -231,16 +263,17 @@ header {
         margin-bottom: 8px;
     }
 }
+
 #edit-profile form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid;
     border-radius: 4px;
-    transition: border-color 0.3s ease-in-out; /* Add transition for smoother effect */
+    transition: border-color 0.3s ease-in-out;
     border-color: #ff8800;
-    appearance: none; /* Remove default dropdown arrow */
-    background-image: url('data:image/svg+xml;utf8,<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>'); /* Add custom dropdown arrow */
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>');
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 20px;
@@ -268,7 +301,7 @@ header {
 }
 
 #fileInput {
-    display: none; /* Hide the default file input */
+    display: none;
 }
 
 #custom-file-upload {
@@ -296,6 +329,7 @@ header {
     border-radius: 4px;
     margin-bottom: 10px;
 }
+
 .logout-btn {
     background-color: #ff7b00;
     color: #ffffff;
@@ -305,19 +339,8 @@ header {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
-  }
-  
-  .logout-btn:hover {
-    background-color: #804800;
-  }
-  
+}
 
-/* Responsive */
-@media only screen and (max-width: 600px) {
-    .main-content{
-        padding: 0px;
-    }
-    .nav{
-        font-size: 8px;
-    }
-  }
+.logout-btn:hover {
+    background-color: #804800;
+}
