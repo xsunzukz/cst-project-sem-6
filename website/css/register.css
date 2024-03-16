@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.8)),
+        url('../img/bg.jpg'); */
+    background-position: center;
+    background-color: #f1f1f1;
+    background-size: cover;
+    height: 60vh;
+    font-family:  "Montserrat", sans-serif;
+}
+
+.container {
+    width: 360px;
+    height: 430px;
+    margin: 10% auto;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+#form1{
+    
+        display: flex;
+        flex-direction: column;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #777;
+}
+
+.container form {
+    width: 280px;
+    position: absolute;
+    top: 100px;
+    left: 40px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #ff7300;
+    /* Thin purple border */
+    border-bottom: 2px solid #c45800;
+    /* Slightly thicker bottom border */
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form input .input-container {
+    border-color: #ff7300;
+}
+
+::placeholder {
+    color: #999;
+}
+
+.btn-box {
+    width: 100%;
+    margin: 30px auto;
+    text-align: center;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #ff7300;
+    /* Purple button background */
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    /* Smooth transitions */
+}
+
+#Form2 {
+    left: 450px;
+}
+
+.step-row {
+    width: 360px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -1px 5px -1px #000;
+    position: relative;
+}
+
+.step-col {
+    width: 240px;
+    text-align: center;
+    color: #333;
+    position: relative;
+}
+
+#progress {
+    position: absolute;
+    height: 40px;
+    width: 178px;
+    background: linear-gradient(to right, #ff7300, #ff8929bb);
+    transition: 0.5s;
+}
+
+#progress::after {
+    content: '';
+    height: 0;
+    width: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    position: absolute;
+    right: -20px;
+    top: 0;
+    border-left: 20px solid #ff8929bb;
+}
+
+.form input .icon,
+.input-container select[name="semester"]+.icon,
+.input-container select[name="department"]+.icon {
+    position: absolute;
+    right: 10px;
+    top: 0%;
+    transform: translateY(-50%);
+    /* Vertically center the icon relative to the parent */
+    color: #ff7300;
+    /* Optional: sets the icon color */
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
+    /* Increased margin between input boxes */
+}
+
+.input-container input {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ff7300;
+    /* Thin purple border */
+    border-bottom: 2px solid #ff7300;
+    /* Slightly thicker bottom border */
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-container input:focus {
+    border-color: #c45800;
+    /* Darker purple border on focus */
+}
+
+.input-container .icon {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    /* Adjust based on the exact alignment you desire */
+    color: #ff7300;
+    /* Optional: sets the icon color */
+}
+
+::placeholder {
+    color: #999;
+}
+
+.input-container select {
+    width: 100%;
+    padding: 10px 5px;
+    margin: 0;
+    /* Adjusted margin to 0 to reduce vertical space */
+    border: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+    color: #8d8d8ded;
+    /* Text color */
+    -webkit-appearance: none;
+    /* Removes default style on WebKit browsers */
+    -moz-appearance: none;
+    /* Removes default style for Mozilla browsers */
+    appearance: none;
+    /* Standard syntax to remove default arrow */
+}
+
+.input-container select::-ms-expand {
+    display: none;
+}
+
+/* Adjusted the top margin for select elements */
+.input-container select[name="semester"],
+.input-container select[name="department"] {
+    margin-top: 5px;
+    /* Adjusted margin-top */
+}
+
+.btn-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    /* Adjusted margin-top */
+}
+
+.btn-box button {
+    width: calc(50% - 5px);
+    /* Adjusted width to 50% with 5px gap */
+    margin: 0 5px;
+    /* Added margin for gap between buttons */
+}
+
+#Back1 {
+    background-color: #ff7300;
+    /* Adjusted button color */
+}
+
+#submitAll {
+    background-color: #ff7300;
+    /* Adjusted button color */
+}
+
+/* ... (previous CSS) ... */
+
+.login-link {
+    text-align: center;
+    margin-top: 10px;
+    color: #333;
+}
+
+.login-link a {
+    color: #ff7300;
+    /* Purple link color */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    display: block;
+    /* Display as block to move to a new line */
+    margin-top: 10px; /* Adjusted margin-top for spacing */
+}
+
+.login-link a:hover {
+    color: #c45800;
+    /* Dark purple on hover */
+    transform: scale(0.95);
+    text-decoration: underline;
+    /* Underline on hover */
+}
+
+
+/* ... (remaining CSS) ... */

@@ -1,0 +1,323 @@
+/* Don't edit the css bellow! */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden; /* Added to disable side scrolling */
+}
+
+/* Other CSS rules remain the same */
+
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+::-webkit-scrollbar{
+    width: 0px;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 0px;
+}
+  body {
+    background-color: #f9f9f9;
+    color: #030303;
+    height: 100vh;
+  }
+
+/* Header/ Nav Styling */
+header {
+    background-color: #ececec;
+    color: #ff8800;
+    padding: 20px;
+    text-align: center;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #e26600;
+}
+
+.nav h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    padding-left: 40px;
+    color: #e26600;
+}
+.nav a{
+    color: #e26600;
+}
+
+.nav-items ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-items ul li {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 18px;
+}
+.nav-items a{
+  color: #ff9100;
+  text-decoration: none;
+}
+
+.nav-items ul li:last-child {
+    margin-right: 0;
+}
+
+.nav-items ul a:hover {
+    color: #e26600; 
+    cursor: pointer;
+    text-decoration: underline;
+}
+#btn-profile{
+  background-color: #ff7b00;
+  color: #000000;
+  padding: 10px 15px 10px 15px;
+  border-radius: 5px;
+}
+#btn-profile:hover{
+  background-color: #d17600;
+  color: #ffffff;
+  text-decoration: none;
+
+}
+/* End Of Header Styles */
+.main-content{
+    width: 100%;
+    height: 100%;
+    padding: 5px 100px 0px 150px;
+}
+.page-name{
+    padding-top: 20px;
+    padding-left: 50px;
+}
+
+.page-name span{
+    color: #ff7300;
+    font-weight: bolder;
+}
+.greetings{
+    padding: 50px;
+    font-weight: bolder;
+}
+.cols-warper{
+    display: flex;
+    flex-wrap: wrap;
+}
+.column {
+    flex: 1;
+    box-sizing: border-box;
+
+}
+.column:nth-child(1) {
+    flex: 0.3;
+    padding-left: 50px;
+}
+
+.column:nth-child(2) {
+    flex: 2;
+}
+.fa-sun-cloud{
+    color: #ff7300;
+    font-size: 25px;
+}
+.cols-style{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px 10px 20px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin: 20px;
+    cursor: pointer;
+}
+.usr-name{
+    font-weight: bolder;
+}
+.edit-profile{
+    font-weight: bolder;
+}
+.btn-active{
+    color: #ff7300;
+}
+.cols-main-style{
+    padding-left: 20px;
+}
+.user-profile{
+    font-size: 24px;
+}
+
+.main-details{
+    margin-top: 20px;
+    font-size: 18px;
+}
+.details{
+    margin: 10px 5px 10px 0px;
+}
+/* Edit Profile Form Styling */
+/* Edit Profile Form Styling */
+#edit-profile form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    width: 800px;
+}
+
+#edit-profile form label {
+    font-weight: bold;
+}
+
+#edit-profile form input[type="text"],
+#edit-profile form input[type="email"] {
+    width: 780px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid;
+    border-radius: 4px;
+    transition: border-color 0.3s ease-in-out; /* Add transition for smoother effect */
+    border-color: #ff8800;;
+}
+
+/* Add focus styles */
+#edit-profile form input[type="text"]:focus,
+#edit-profile form input[type="email"]:focus {
+    border-color: #ff8800;
+}
+
+#edit-profile form input[type="submit"] {
+    background-color: #ff8800;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out; /* Add transition for smoother effect */
+    border-color: #ff8800;
+}
+
+#edit-profile form input[type="submit"]:hover {
+    background-color: #844000;
+}
+.details{
+    font-weight: bold;
+    color: #ff8800;
+}
+.details-info{
+    font-weight: 400;
+    color: #555;
+}
+#edit-profile form label,
+#edit-profile form input[type="submit"] {
+    display: block;
+}
+
+@media only screen and (max-width: 600px) {
+    #edit-profile form {
+        padding: 10px;
+    }
+
+    #edit-profile form input[type="text"],
+    #edit-profile form input[type="email"],
+    #edit-profile form input[type="submit"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 8px;
+    }
+}
+#edit-profile form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid;
+    border-radius: 4px;
+    transition: border-color 0.3s ease-in-out; /* Add transition for smoother effect */
+    border-color: #ff8800;
+    appearance: none; /* Remove default dropdown arrow */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>'); /* Add custom dropdown arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+    color: #555;
+}
+
+/* Add focus styles */
+#edit-profile form select:focus {
+    border-color: #ff8800;
+}
+
+#update-profile-photo {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    width: 800px;
+}
+
+#update-profile-photo h1 {
+    font-size: 24px;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+#fileInput {
+    display: none; /* Hide the default file input */
+}
+
+#custom-file-upload {
+    background-color: #ff8800;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    display: inline-block;
+    border: none;
+}
+
+#custom-file-upload:hover {
+    background-color: #844000;
+}
+
+#previewContainer {
+    margin-top: 20px;
+}
+
+#previewContainer img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.logout-btn {
+    background-color: #ff7b00;
+    color: #ffffff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: #804800;
+  }
+  
+
+/* Responsive */
+@media only screen and (max-width: 600px) {
+    .main-content{
+        padding: 0px;
+    }
+    .nav{
+        font-size: 8px;
+    }
+  }

@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    background-color: #f1f1f1;
+    font-family:  "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 400px;
+    margin: 80px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+#LoginForm {
+    display: flex;
+    flex-direction: column;
+}
+h3 {
+    text-align: center; /* Center the text */
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 20px; /* Increased margin between input boxes */
+}
+
+.input-container input {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #ff7300; /* Thin purple border */
+    border-bottom: 2px solid #ff7300; /* Slightly thicker bottom border */
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-container input:focus {
+    border-color: #c45800; /* Darker purple border on focus */
+}
+
+.input-container .icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ff7300; /* Purple color */
+}
+
+.btn-box {
+    margin-top: 20px;
+}
+
+#submitBtn {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #ff7300; /* Purple button background */
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+#submitBtn:hover {
+    background-color: #c45800; /* Dark purple on hover */
+    color: #fff;
+    transform: scale(0.95); /* Slight scale down effect on hover */
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+    color: #333;
+}
+
+.register-link a {
+    color: #ff7300; /* Purple link color */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.register-link a:hover {
+    color: #c45800; /* Dark purple on hover */
+    transform: scale(0.95);
+    text-decoration: underline; /* Underline on hover */
+}
