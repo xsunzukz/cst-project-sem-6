@@ -85,6 +85,26 @@ mysqli_close($conn);
                 <div class="cols-main-style" id="view-profile">
                     <h4 class="user-profile">My User Profile</h4>
                     <div class="main-details">
+                        <style>
+                            .profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff8800;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.1);
+}
+                        </style>
+                    <?php if (!empty($photo_path)): ?>
+                        <img src="<?php echo $photo_path ?>" alt="Profile Photo" class="profile-photo">
+                        <?php endif; ?>
+
+
                         <p class="details">Name: <span class="details-info"><?php echo $name ?></span></p>
                         <p class="details">Email: <span class="details-info"><?php echo $mail ?></span></p>
                         <p class="details">DEPT: <span class="details-info"><?php echo $dept ?></span></p>
