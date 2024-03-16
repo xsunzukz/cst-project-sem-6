@@ -23,4 +23,4 @@ Follow these steps to get started with Docker and the necessary tools:
 
 1. Clone the project repository to your local machine using Git:
    ```bash
-   git clone https://github.com/xsunzukz/cst-project-sem-6.git)https://github.com/xsunzukz/cst-project-sem-6.git
+   git clone https://github.com/xsunzukz/cst-project-sem-6.git
