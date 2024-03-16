@@ -13,7 +13,6 @@ services:
       - "./website:/var/www/html"
     ports:
       - 80:80
-      - 443:443
     depends_on:
       - db
   phpmyadmin:
