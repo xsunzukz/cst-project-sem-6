@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+    font-family:  "Montserrat", sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.upload-form, .delete-form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 500px;
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input[type="datetime-local"] {
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    background-color: #ff5e00;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #ff7300;
+}
+
+#error-message {
+    color: red;
+    margin-top: 5px;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.button-container button {
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+    background-color: #ff7300;
+}
+
+.forms-container {
+    display: flex;
+    justify-content: center;
+}
+
+.upload-form, .delete-form, .edit-form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 10px;
+    max-width: 500px;
+    padding: 20px;
+    display: none;
+}
+
+.upload-form h2, .delete-form h2, .edit-form h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.button-container{
+    padding-top: 50px;
+}
+.form-warper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-form,
+.delete-form,
+.edit-form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    padding: 20px;
+}
+
+.upload-form h2,
+.delete-form h2,
+.edit-form h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.upload-form,
+.delete-form ,
+.edit-form  {
+  width: 800px;
+}
+.login-warper {
+    width: 100%;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-container {
+    width: 500px;
+    height: auto; /* Adjust height as needed */
+    position: relative;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+#login-container label{
+    font-size: bold;
+}
+
+/* Input box styles */
+input[type="text"],
+input[type="number"],
+select,
+textarea,
+input[type="datetime-local"] {
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+/* Input box focus styles */
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus,
+input[type="datetime-local"]:focus {
+    border-color: #be5c00; /* Change border color on focus */
+    outline: none; /* Remove default focus outline */
+}
+
+/* Submit button styles */
+input[type="submit"] {
+    background-color: #ff7b00;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+input[type="submit"]:hover {
+    background-color: #b35100; /* Change background color on hover */
+}
+
+/* Error message styles */
+#error-message {
+    color: red;
+    margin-top: 5px;
+}
+
+#password{
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+#password:focus{
+    border-color: #ff7300; /* Change border color on focus */
+    outline: none; /* Remove default focus outline */
+}

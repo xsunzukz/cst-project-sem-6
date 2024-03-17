@@ -1,0 +1,185 @@
+/* Don't edit the css bellow! */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden; /* Added to disable side scrolling */
+  background-color: #f9f9f9;
+}
+
+/* Other CSS rules remain the same */
+
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+/* Define CSS variables for light mode */
+
+::-webkit-scrollbar{
+    width: 0px;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 0px;
+}
+  /* Apply styles using CSS variables */
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    height: 200vh;
+  }
+
+/* Header/ Nav Styling */
+  header {
+    background-color: #ececec;
+    color: #e26600;
+    padding: 20px;
+    text-align: center;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    padding-left: 40px;
+    cursor: pointer;
+}
+
+.nav-items ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-items ul li {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 18px;
+}
+.nav-items a{
+  color: #e26600;
+  text-decoration: none;
+}
+
+.nav-items ul li:last-child {
+    margin-right: 0;
+}
+
+.nav-items ul a:hover {
+    color: #e26600; 
+    cursor: pointer;
+    text-decoration: underline;
+}
+#btn-profile{
+  background-color: #ff7b00;
+  color: #ffffff;
+  padding: 10px 15px 10px 15px;
+  border-radius: 5px;
+}
+#btn-profile:hover{
+  background-color: #a15b00;
+  color: #ffffff;
+  text-decoration: none;
+
+}
+  /* End of header styles */
+  /* Start of Slider */
+  .slider{
+    height: 350px;
+    background-color: #c5c5c5;
+    width: 100%;
+    box-shadow: 15px 0 0 0 #000000;
+    background: url('/img/background-slider.jpg');
+    background-size: cover; /* Adjusts the background image to cover the entire container */
+    background-position: center; /* Centers the background image */
+  }
+  .slider h1{
+    padding: 50px 0px 20px 0px;
+  }
+  .slider p{
+    padding: 0px 0px 20px 5px;
+    width: 1000px;
+  }
+  .slider a{
+    margin-left: 5px;
+    text-decoration: none;
+    color: #ececec;
+    background-color: #e48100;
+    margin-top: 15px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+  }
+
+  .slider-warper {
+    background-color: rgba(114, 114, 114, 0.4);
+    padding-left: 55px;
+    height: 100%;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .slider-warper:hover {
+    background-color: rgba(172, 172, 172, 0.6);
+    cursor: pointer;
+  }
+  .classes-head{
+    padding-left: 45px;
+    padding-top: 25px;
+  }
+  .classes-container {
+    /* Ensure the container stretches to fit its content */
+    overflow: auto;
+    padding: 10px 50px 10px 50px;
+}
+
+/* Additional CSS for the cool-looking cards */
+
+.card {
+  background-color: #dfdfdfbb;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px rgba(255, 194, 194, 0.1);
+  padding: 20px;
+  margin: 0 10px 20px;
+  width: calc(50% - 20px); /* Two cards side by side */
+  max-width: 250px; /* Set maximum width */
+  box-sizing: border-box; /* Include padding and border in total width */
+  display: inline-block; /* Display cards side by side */
+  vertical-align: top; /* Align cards at the top */
+  transition: transform 0.3s ease; /* Smooth hover transition */
+  height: 150px;
+  text-decoration: none;
+  
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.card p {
+  font-size: 16px;
+  color: #333;
+  margin: 10px 0;
+}
+
+.card p span {
+  font-weight: bold;
+  color: #666;
+  margin-right: 5px;
+}
+.students-container{
+  padding: 20px 50px 20px 50px;
+}
+
+
+  /* Responsive */
+  @media only screen and (max-width: 600px) {
+    body {
+      zoom: 0.5;
+    }
+  }
