@@ -27,29 +27,17 @@ mysqli_close($conn);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/class.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
-<<<<<<< HEAD
-    <title>Student Info</title>
-=======
     <title>Class</title>
->>>>>>> 90f0ad18c0512eb5e44d5d5d0d24f86e6451ed1c
 </head>
 <body>
 <header>
         <div class="nav">
-<<<<<<< HEAD
-            <h1> <a href="./index.php" style="text-decoration: none;">SmartTrack</a></h1>
-            <div class="nav-items">
-                <ul>
-                    <li><a href="./index.php">Home</a></li>
-                    <li><a href="#studnet">Students</a></li>
-=======
             <h1>SmartTrack</h1>
             <div class="nav-items">
                 <ul>
                     <li><a href="">Home</a></li>
                     <li><a href="#classes">Classes</a></li>
                     <li><a href="">Notes</a></li>
->>>>>>> 90f0ad18c0512eb5e44d5d5d0d24f86e6451ed1c
                     <?php
                     // Check if the cookie exists
                     if(!isset($_COOKIE['user_email']) || !isset($_COOKIE['user_password'])) {
