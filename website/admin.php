@@ -124,12 +124,9 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
         
         <label for="edit_end_time">End Time:</label>
         <input type="datetime-local" id="edit_end_time" name="edit_end_time" required>
-<<<<<<< HEAD
         <label for="notes">Update Notes</label>
         <input type = "text" id = "notes" name = "notes">
-=======
         
->>>>>>> 90f0ad18c0512eb5e44d5d5d0d24f86e6451ed1c
         <input type="submit" value="Save Changes">
     </form>
 </div>

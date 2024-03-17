@@ -9,13 +9,10 @@
         <body>
         <div class="confirmation-container">
             <div class="confirmation-content">
-<<<<<<< HEAD
                 <h2>Class Information Edited Successfully</h2>
                 <p>You have successfully edited the class information.</p>
-=======
                 <h2>Class Information Deleted Successfully</h2>
                 <p>You have successfully deleted the class information.</p>
->>>>>>> 90f0ad18c0512eb5e44d5d5d0d24f86e6451ed1c
                 <a href="../admin.php" class="btn">Go Back</a>
             </div>
         </div>

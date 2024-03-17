@@ -66,11 +66,8 @@ mysqli_close($conn);
         </div>
     </header>
     <div class="page-name">
-<<<<<<< HEAD
             <p>Home /<span> Students</span></p>
-=======
             <p>Home /<span> Classes</span></p>
->>>>>>> 90f0ad18c0512eb5e44d5d5d0d24f86e6451ed1c
         </div>
     <div class="greeting">
             <h4><i class="fa-solid fa-sun-cloud"></i> Hello, We hope you are having a good day!</h4>
@@ -79,11 +76,8 @@ mysqli_close($conn);
     <div class="cols-warper">
     <div class="column">
         <div class="col1-items">
-<<<<<<< HEAD
             <p class="classes-btn"><i class="fa-duotone fa-graduation-cap" style="--fa-primary-color: #ff8800; --fa-secondary-color: #ff8800;"></i> STUDENT</p>
-=======
             <p class="classes-btn"><i class="fa-solid fa-screen-users"></i></i> CLASS</p>
->>>>>>> 90f0ad18c0512eb5e44d5d5d0d24f86e6451ed1c
         </div>
         <div class="col1-items">
             <p class="notes-btn"><i class="fa-solid fa-notes"></i> OTHER INFO</p>
