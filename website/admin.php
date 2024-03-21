@@ -194,6 +194,47 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
         document.querySelector(".delete-form").style.display = "block";
         document.title = "Delete Class - Admin Panel"; // Change title
     });
+    document.getElementById("edit_id").addEventListener("input", handleClassIdChange);
+
+    function handleClassIdChange(event) {
+    const classId = event.target.value;
+
+    // Create a new XMLHttpRequest object
+    const xhr = new XMLHttpRequest();
+
+    // Configure the AJAX request
+    xhr.open('POST', './events/get_class_data.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    // Define the callback function to handle the AJAX response
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            // Request was successful
+            const responseData = JSON.parse(xhr.responseText);
+            // Populate the form fields with the retrieved data
+            populateEditForm(responseData);
+        } else {
+            // Request failed
+            console.error('Request failed:', xhr.statusText);
+        }
+    };
+
+    // Send the AJAX request with the class ID as data
+    xhr.send('class_id=' + encodeURIComponent(classId));
+}
+
+// Function to populate the edit form fields with data
+function populateEditForm(data) {
+    document.getElementById('edit_topic').value = data.topic;
+    document.getElementById('edit_teacher').value = data.teacher;
+    document.getElementById('edit_description').value = data.description;
+    document.getElementById('edit_dept').value = data.DEPT;
+    document.getElementById('edit_start_time').value = data.start_time;
+    document.getElementById('edit_end_time').value = data.end_time;
+    document.getElementById('notes').value = data.notes;
+}
+
+
 </script>
 
 
