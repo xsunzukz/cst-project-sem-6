@@ -33,7 +33,10 @@
 **Installation Steps:**
 
 1. Open CMD and navigate to the folder where you've placed the project files.
-2. Run the command ```docker-compose up```
+2. Run the command 
+```bash
+docker-compose up
+```
    - This command will download all the necessary files and start the container.
    - Access phpMyAdmin by visiting `localhost:8001` in your web browser.
    - Initially, use "admin" for both the ID and password. If it doesn't work, keep trying and monitor the console.
