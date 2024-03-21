@@ -1,20 +1,24 @@
 <?php
 // Database configuration
 $host = 'db';
-$user = 'admin'; 
-$password = 'admin123'; 
-$database = 'bgp_database'; 
+$dbname = 'bgp_database';
+$username = 'admin';
+$password = 'admin123';
 
-// Establishing the connection
-$conn = mysqli_connect($host, $user, $password, $database);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+// Establish a database connection using PDO
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    // Set the PDO error mode to exception
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // Set the default fetch mode to associative array
+    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    // Handle database connection error
+    die("Database connection failed: " . $e->getMessage());
 }
 
 // Optional: Set character set to utf8 (if needed)
-mysqli_set_charset($conn, 'utf8');
-
-
+$pdo->exec("SET NAMES 'utf8'");
+$pdo->exec("SET CHARACTER SET utf8");
+$pdo->exec("SET SESSION collation_connection = 'utf8_unicode_ci'");
 ?>
