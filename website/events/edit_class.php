@@ -11,18 +11,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $edit_dept = $_POST['edit_dept'];
     $edit_start_time = $_POST['edit_start_time'];
     $edit_end_time = $_POST['edit_end_time'];
+    $notes = $_POST['notes'];
 
-    // Update the data in the database
-    $sql = "UPDATE classes SET topic='$edit_topic', teacher='$edit_teacher', description='$edit_description', DEPT='$edit_dept', start_time='$edit_start_time', end_time='$edit_end_time' WHERE id=$edit_id";
+    if ($notes == 'Notes are not found for this class') {
+        $sql = "UPDATE classes SET topic='$edit_topic', teacher='$edit_teacher', description='$edit_description', DEPT='$edit_dept', start_time='$edit_start_time', end_time='$edit_end_time' WHERE id=$edit_id";
 
-    if (mysqli_query($conn, $sql)) {
-        // Redirect to the confirmation page
-        header("Location: ../confirmationPages/confirmation_edited.php");
-        exit;
+        if (mysqli_query($conn, $sql)) {
+            // Redirect to the confirmation page
+            header("Location: ../confirmationPages/confirmation_edited.php");
+            exit;
+        } else {
+            echo "<p>Error: " . $sql . "<br>" . mysqli_error($conn) . "</p>";
+        }
+        // Close the database connection
+        mysqli_close($conn);
     } else {
-        echo "<p>Error: " . $sql . "<br>" . mysqli_error($conn) . "</p>";
+        $sql = "UPDATE classes SET topic='$edit_topic', teacher='$edit_teacher', description='$edit_description', DEPT='$edit_dept', start_time='$edit_start_time', end_time='$edit_end_time', notes='$notes' WHERE id=$edit_id";
+
+        if (mysqli_query($conn, $sql)) {
+            // Redirect to the confirmation page
+            header("Location: ../confirmationPages/confirmation_edited.php");
+            exit;
+        }
     }
-    // Close the database connection
-    mysqli_close($conn);
 }
 ?>

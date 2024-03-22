@@ -224,15 +224,28 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
 }
 
 // Function to populate the edit form fields with data
+// Function to populate the edit form fields with data or display a message if no data is found
 function populateEditForm(data) {
-    document.getElementById('edit_topic').value = data.topic;
-    document.getElementById('edit_teacher').value = data.teacher;
-    document.getElementById('edit_description').value = data.description;
-    document.getElementById('edit_dept').value = data.DEPT;
-    document.getElementById('edit_start_time').value = data.start_time;
-    document.getElementById('edit_end_time').value = data.end_time;
-    document.getElementById('notes').value = data.notes;
+    if (data) {
+        document.getElementById('edit_topic').value = data.topic || 'No class data found';
+        document.getElementById('edit_teacher').value = data.teacher || 'No class data found';
+        document.getElementById('edit_description').value = data.description || 'No class data found';
+        document.getElementById('edit_dept').value = data.DEPT || 'No class data found';
+        document.getElementById('edit_start_time').value = data.start_time || 'No class data found';
+        document.getElementById('edit_end_time').value = data.end_time || 'No class data found';
+        document.getElementById('notes').value = data.notes || 'Notes are not found for this class';
+    } else {
+        // If no data is found, display a message in the form fields
+        document.getElementById('edit_topic').value = 'No class data found';
+        document.getElementById('edit_teacher').value = 'No class data found';
+        document.getElementById('edit_description').value = 'No class data found';
+        document.getElementById('edit_dept').value = 'No class data found';
+        document.getElementById('edit_start_time').value = 'No class data found';
+        document.getElementById('edit_end_time').value = 'No class data found';
+        document.getElementById('notes').value = 'No class data found';
+    }
 }
+
 
 
 </script>
