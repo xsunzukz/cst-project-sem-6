@@ -59,7 +59,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
         <textarea id="description" name="description" required></textarea>
         
         <label for="dept">Department:</label>
-        <select id="dept" name="dept" required>
+        <select id="dept" name="dept" required >
             <option value="">Select Department</option>
             <option value="CST">CST</option>
             <option value="CFS">CFS</option>
@@ -234,6 +234,8 @@ function populateEditForm(data) {
         document.getElementById('edit_start_time').value = data.start_time || 'No class data found';
         document.getElementById('edit_end_time').value = data.end_time || 'No class data found';
         document.getElementById('notes').value = data.notes || 'Notes are not found for this class';
+        document.getElementById('edit_dept').disabled = true;
+
     } else {
         // If no data is found, display a message in the form fields
         document.getElementById('edit_topic').value = 'No class data found';
