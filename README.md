@@ -20,7 +20,7 @@
 6. Wait for the installation to complete, which may take some time.
 7. After installing Docker Desktop, restart your computer.
 # HOW TO MOVE DOCKER FROM C:/  TO D:/ (GUIDE) (RECOMANDED)
- Run this script: [Script](https://cdn.discordapp.com/attachments/1215716330406285312/1220002878568009798/move-docker-data.bat?ex=660d5b38&is=65fae638&hm=5396a356a70fa8ce0863386cabf9c7a1bc6588581f78bd29f4bd0ecad78fb30c&)
+ Run this script: [Script](https://cdn.discordapp.com/attachments/1215716330406285312/1220002878568009798/move-docker-data.bat?ex=66290ab8&is=661695b8&hm=d4572c220ad4b4e310c93656a0f6f5b87abc070a788cb33fc33726d7b63da88f&)
 
  # HOW TO SWITCH TO DOCKER FROM XAMPP ?
  **Before Starting:**
