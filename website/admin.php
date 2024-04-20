@@ -108,8 +108,6 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
         
         <label for="edit_description">Description:</label>
         <textarea id="edit_description" name="edit_description" required></textarea>
-        
-        <label for="edit_dept">Department:</label>
         <select id="edit_dept" name="edit_dept" required>
             <option value="">Select Department</option>
             <option value="CST">CST</option>
@@ -133,6 +131,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
 </div>
 
 <script>
+    document.getElementById('edit_dept').style.display = "none";
     // Check if cookie exists and skip login form if it does
     if (document.cookie.includes('loggedin=true')) {
         document.getElementById('login-container').style.display = 'none';
@@ -166,7 +165,6 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
             console.error('Error:', error);
         });
     });
-
     // Prevent form submission on Enter key press
     document.getElementById("login-form").addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
@@ -234,7 +232,7 @@ function populateEditForm(data) {
         document.getElementById('edit_start_time').value = data.start_time || 'No class data found';
         document.getElementById('edit_end_time').value = data.end_time || 'No class data found';
         document.getElementById('notes').value = data.notes || 'Notes are not found for this class';
-        document.getElementById('edit_dept').disabled = true;
+        document.getElementById('edit_dept').style.display = "none";
 
     } else {
         // If no data is found, display a message in the form fields
