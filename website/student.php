@@ -63,7 +63,7 @@ mysqli_close($conn);
     <div class="cols-warper">
     <div class="column">
         <div class="col1-items">
-            <p class="classes-btn"><i class="fa-duotone fa-graduation-cap" style="--fa-primary-color: #ff8800; --fa-secondary-color: #ff8800;"></i> STUDENT</p>
+            <p class="classes-btn"><i class="fa-duotone fa-graduation-cap"></i> STUDENT</p>
         </div>
         <div class="col1-items">
             <p class="notes-btn"><i class="fa-solid fa-notes"></i> OTHER INFO</p>
