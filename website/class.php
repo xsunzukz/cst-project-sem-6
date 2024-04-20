@@ -103,7 +103,7 @@ mysqli_close($conn);
         <?php
 include './connection-files/db_classes_conn.php';
 
-$sql = "SELECT * FROM classes WHERE  DEPT = '$dept'";
+$sql = "SELECT * FROM classes WHERE  DEPT = '$dept' And id != $class_id ";
 
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
@@ -116,7 +116,7 @@ if (mysqli_num_rows($result) > 0) {
         echo '</a>';
     }
 } else {
-    echo '<p>Opps! No classes found!</p>';
+    echo '<p>No classes found!</p>';
 }
 mysqli_close($conn);
 ?>
