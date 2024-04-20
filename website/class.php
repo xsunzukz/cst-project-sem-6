@@ -29,7 +29,7 @@ mysqli_close($conn);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/class.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
-    <title>Class</title>
+    <title>SmartTrack - Class</title>
 </head>
 <body>
 <header>

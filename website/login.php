@@ -11,7 +11,7 @@ if(isset($_COOKIE['user_email']) && isset($_COOKIE['user_password'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN</title>
+    <title>SmartTrack - Login</title>
     <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>

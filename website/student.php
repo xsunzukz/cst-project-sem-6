@@ -27,7 +27,7 @@ mysqli_close($conn);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/class.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
-    <title>Class</title>
+    <title>Student - Profile</title>
 </head>
 <body>
 <header>
@@ -55,7 +55,6 @@ mysqli_close($conn);
     </header>
     <div class="page-name">
             <p>Home /<span> Students</span></p>
-            <p>Home /<span> Classes</span></p>
         </div>
     <div class="greeting">
             <h4><i class="fa-solid fa-sun-cloud"></i> Hello, We hope you are having a good day!</h4>
@@ -65,7 +64,6 @@ mysqli_close($conn);
     <div class="column">
         <div class="col1-items">
             <p class="classes-btn"><i class="fa-duotone fa-graduation-cap" style="--fa-primary-color: #ff8800; --fa-secondary-color: #ff8800;"></i> STUDENT</p>
-            <p class="classes-btn"><i class="fa-solid fa-screen-users"></i></i> CLASS</p>
         </div>
         <div class="col1-items">
             <p class="notes-btn"><i class="fa-solid fa-notes"></i> OTHER INFO</p>
