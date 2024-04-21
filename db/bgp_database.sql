@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Apr 20, 2024 at 10:41 AM
+-- Generation Time: Apr 21, 2024 at 06:52 AM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.8
 
@@ -57,27 +57,6 @@ CREATE TABLE `classes` (
   `notes` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `classes`
---
-
-INSERT INTO `classes` (`id`, `topic`, `teacher`, `description`, `DEPT`, `start_time`, `end_time`, `notes`) VALUES
-(1, 'Final Year Major Project ', 'Sanat Ghosh', 'In this class we are going to discuss about the final year project of  CST dept. ', 'CST', '2024-04-21 10:00:00', '2024-04-21 11:30:00', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `CST _class_1`
---
-
-CREATE TABLE `CST _class_1` (
-  `id` int NOT NULL,
-  `dept` varchar(50) NOT NULL,
-  `reg_no` varchar(50) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `status_attend` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
 -- --------------------------------------------------------
 
 --
@@ -101,7 +80,8 @@ CREATE TABLE `student_info` (
 
 INSERT INTO `student_info` (`id`, `email`, `password`, `name`, `semester`, `department`, `registration_number`, `photos`) VALUES
 (22, 'dummy@gmail.com', '945d907f6a5e50d7f95b96925dca6a32e09eb782060956e3f122e24d7f90f8da', 'Dummy Name', '6', 'CST', 'DUMMYREGID', NULL),
-(23, 'lorem@lorem.com', '8e5464a9c2c12aee29b241848468bc2006976bb79623d45c2f5539cfc22908b9', 'Lorem', '6', 'CFS', 'LOREMEPTID', NULL);
+(23, 'lorem@lorem.com', '8e5464a9c2c12aee29b241848468bc2006976bb79623d45c2f5539cfc22908b9', 'Lorem', '6', 'CFS', 'LOREMEPTID', NULL),
+(24, 'sunzukzkun@gmail.com', 'bda17eb081ff3ad5805395037e091fcf775e976f85c64d83f0d905473c8ba216', 'Santu Roy', '6', 'CST', 'D30001F00X', NULL);
 
 --
 -- Indexes for dumped tables
@@ -117,12 +97,6 @@ ALTER TABLE `adminx`
 -- Indexes for table `classes`
 --
 ALTER TABLE `classes`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `CST _class_1`
---
-ALTER TABLE `CST _class_1`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -147,19 +121,13 @@ ALTER TABLE `adminx`
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `CST _class_1`
---
-ALTER TABLE `CST _class_1`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `student_info`
 --
 ALTER TABLE `student_info`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

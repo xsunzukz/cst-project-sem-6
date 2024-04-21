@@ -20,8 +20,22 @@ if (mysqli_num_rows($result) > 0) {
         $notes = $row['notes'];
     }
 }
-mysqli_close($conn);
+if (isset($_COOKIE['user_email'])) {
+    $mail = $_COOKIE['user_email'];
+    $tablename = $dept . ' '. '_class_' . $class_id; // corrected table name format
+    $sql = "SELECT * FROM `$tablename` WHERE email = '$mail'";
+    $result = mysqli_query($conn, $sql);
+    
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $status = $row['status_attend'];
+    } else {
+        $status = "Unknown";
+    }
+    mysqli_close($conn);
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,17 +86,20 @@ mysqli_close($conn);
     </div>
     <div class="column">
         <div class="col2-items">
-            <div class="class-dtls" id="classes">
-            <h1>CLASS DETAILS</h1>
-            <p></p><span>Topic: </span><?php echo $name ?></p>
-            <p></p><span>Description: </span><?php echo $desc ?></p>
-            <p></p><span>DEPT: </span><?php echo $dept ?></p>
-            <p></p><span>Teacher: </span><?php echo $teach ?></p>
-            <p></p><span>Starting Form: </span><?php echo $t_start ?></p>
-            <p></p><span>End Time: </span><?php echo $t_end ?></p>
-            <p></p><span>Class ID: </span><?php echo $class_id ?></p>
-            <p></p><span>Attendence Status: </span>Attended</p>
-            </div>
+        <div class="class-dtls" id="classes">
+    <h1>CLASS DETAILS</h1>
+    <p></p><span>Topic: </span><?php echo $name ?></p>
+    <p></p><span>Description: </span><?php echo $desc ?></p>
+    <p></p><span>DEPT: </span><?php echo $dept ?></p>
+    <p></p><span>Teacher: </span><?php echo $teach ?></p>
+    <p></p><span>Starting Form: </span><?php echo $t_start ?></p>
+    <p></p><span>End Time: </span><?php echo $t_end ?></p>
+    <p></p><span>Class ID: </span><?php echo $class_id ?></p>
+    <?php if(isset($_COOKIE['user_email'])) { ?>
+        <p></p><span>Attendence Status: </span><?php echo $status ?></p>
+    <?php } ?>
+</div>
+
         </div>
         <div class="col2-items">
         <div class="notes">
