@@ -27,9 +27,6 @@ if(isset($_POST['topic'], $_POST['teacher'], $_POST['description'], $_POST['dept
         // Construct the SQL query to create the table
         $createTableSQL = "CREATE TABLE `$dept _class_$class_id` (
             id INT AUTO_INCREMENT PRIMARY KEY,
-            dept VARCHAR(50) NOT NULL,
-            reg_no VARCHAR(50) NOT NULL,
-            name VARCHAR(255) NOT NULL,
             status_attend Varchar(50) not null,
             email Varchar(50) not null
         )";
