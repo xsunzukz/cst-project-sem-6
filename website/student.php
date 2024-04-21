@@ -115,11 +115,13 @@ mysqli_close($conn);
     <h1>More Students</h1>
     <?php
     include './connection-files/db_classes_conn.php';
+    $mailid = isset($_COOKIE['user_email']) ? $_COOKIE['user_email'] : ' ';
     if(!$dept){
         $sql = "SELECT * FROM student_info";
     } else {
-        $sql = "SELECT * FROM student_info WHERE department = '$dept' and id != $student_id";
+        $sql = "SELECT * FROM student_info WHERE department = '$dept' and id != $student_id and email != '$mailid'";
     }
+    
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
