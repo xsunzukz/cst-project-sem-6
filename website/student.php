@@ -128,7 +128,7 @@ mysqli_close($conn);
         class_btn.classList.add('btn-active');
         notes_btn.classList.remove('btn-active');
         class_dtls.style.display = 'block';
-        notes.style.display = 'none';
+        notes.style.display = 'none'; 
     });
     notes_btn.addEventListener('click', function(){
         class_btn.classList.remove('btn-active');
