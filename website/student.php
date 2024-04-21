@@ -23,6 +23,7 @@ if (mysqli_num_rows($result) > 0) {
         $dept = $row['department'];
         $t_start = $row['registration_number'];
         $t_end = $row['email'];
+        $photo_path = $row['photos'];
     }
 }
 mysqli_close($conn);
@@ -75,8 +76,27 @@ mysqli_close($conn);
             <div class="col2-items">
                 <div class="class-dtls">
                     <h1>STUDENT DETAILS</h1>
+                    <style>
+                            .profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff8800;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.1);
+}
+                        </style>
+                    <?php if (!empty($photo_path)): ?>
+                        <img src="<?php echo $photo_path ?>" alt="Profile Photo" class="profile-photo">
+                        <?php endif; ?>
+
                     <p><span>Topic: </span><?php echo $name ?></p>
-                    <p><span>Description: </span><?php echo $desc ?></p>
+                    <p><span>Semester: </span><?php echo $desc ?></p>
                     <p><span>DEPT: </span><?php echo $dept ?></p>
                     <p><span>Registration Number: </span><?php echo $t_start ?></p>
                     <p><span>Email </span><?php echo $t_end ?></p>
