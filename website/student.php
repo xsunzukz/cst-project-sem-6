@@ -43,9 +43,7 @@ mysqli_close($conn);
     <h1> <a href="./index.php" style="text-decoration: none;">SmartTrack</a></h1>
         <div class="nav-items">
             <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="#classes">Classes</a></li>
-                <li><a href="">Notes</a></li>
+                <li><a href="./index.php">Home</a></li>
                 <?php
                 if(!isset($_COOKIE['user_email']) || !isset($_COOKIE['user_password'])) {
                     echo '<li><a href="./login.php" id="btn-profile">Login</a></li>';

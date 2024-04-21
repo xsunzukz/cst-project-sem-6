@@ -59,12 +59,12 @@ header {
 }
 #btn-profile{
   background-color: #ff7b00;
-  color: #000000;
+  color: #ffffff;
   padding: 10px 15px 10px 15px;
   border-radius: 5px;
 }
 #btn-profile:hover{
-  background-color: #d17600;
+  background-color: #a55d00;
   color: #ffffff;
   text-decoration: none;
 
