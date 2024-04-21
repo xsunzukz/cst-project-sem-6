@@ -137,5 +137,4 @@ mysqli_close($conn);
             });
         });
 </script>
-<script src="js/index.js"></script>
 </html>
