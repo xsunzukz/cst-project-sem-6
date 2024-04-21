@@ -9,7 +9,6 @@ if (!$student_id) {
 
 $mail = isset($_COOKIE['user_email']) ? $_COOKIE['user_email'] : '';
 include './connection-files/db_classes_conn.php';
-
 // Using prepared statements to avoid SQL injection
 $stmt = $conn->prepare("SELECT * FROM student_info WHERE id = ?");
 $stmt->bind_param("i", $student_id);
@@ -41,7 +40,7 @@ mysqli_close($conn);
 <body>
 <header>
     <div class="nav">
-        <h1>SmartTrack</h1>
+    <h1> <a href="./index.php" style="text-decoration: none;">SmartTrack</a></h1>
         <div class="nav-items">
             <ul>
                 <li><a href="">Home</a></li>
@@ -95,13 +94,13 @@ mysqli_close($conn);
     </div>
 </div>
 <div class="all-classes">
-    <h1>All Classes</h1>
+    <h1>More Students</h1>
     <?php
     include './connection-files/db_classes_conn.php';
     if(!$dept){
         $sql = "SELECT * FROM student_info";
     } else {
-        $sql = "SELECT * FROM student_info WHERE department = '$dept' and email != '$mail'";
+        $sql = "SELECT * FROM student_info WHERE department = '$dept' and id != $student_id";
     }
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
@@ -113,7 +112,7 @@ mysqli_close($conn);
             echo '</a>';
         }
     } else {
-        echo '<p>No Students found!</p>';
+        echo '<p>No Students found from this dept if more student data exists and not showing up contact admin!</p>';
     }
     mysqli_close($conn);
     ?>
