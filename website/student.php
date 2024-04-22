@@ -95,7 +95,7 @@ mysqli_close($conn);
                         <img src="<?php echo $photo_path ?>" alt="Profile Photo" class="profile-photo">
                         <?php endif; ?>
 
-                    <p><span>Topic: </span><?php echo $name ?></p>
+                    <p><span>Name: </span><?php echo $name ?></p>
                     <p><span>Semester: </span><?php echo $desc ?></p>
                     <p><span>DEPT: </span><?php echo $dept ?></p>
                     <p><span>Registration Number: </span><?php echo $t_start ?></p>
