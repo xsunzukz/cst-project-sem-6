@@ -230,32 +230,8 @@ body {
     margin: 20px auto;
     padding: 20px;
     background-color: #ffffff;
-    border: 2px solid #ff7300;
     border-radius: 8px;
 }
-
-h2 {
-    color: #ff7300;
-    margin-bottom: 20px;
-}
-
-input[type="number"],
-select,
-input[type="submit"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ff7300;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-input[type="submit"] {
-    background-color: #ff7300;
-    color: white;
-    cursor: pointer;
-}
-
 table {
     width: 100%;
     border-collapse: collapse;

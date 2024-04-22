@@ -41,10 +41,10 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
 
 <div id="content" style="display: none;" style="display: <?php echo $contentDisplayStyle; ?>;">
     <div class="button-container">
+    <button id="getdata-btn">Get Data</button>
         <button id="create-btn">Create</button>
         <button id="edit-btn">Edit</button>
         <button id="delete-btn">Delete</button>
-        <button id="getdata-btn">Get Data</button>
     </div>
     <div class="form-warper">
 <div class="upload-form" style="display: block;">
@@ -200,8 +200,9 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     if (document.cookie.includes('loggedin=true')) {
         document.getElementById('login-container').style.display = 'none';
         document.getElementById('content').style.display = 'block';
-        document.querySelector('.login-warper').style.display = 'none'; // Add this line to hide the login wrapper
-        document.querySelector(".get-data").style.display = "none";
+        document.querySelector('.login-warper').style.display = 'none';
+        document.querySelector(".upload-form").style.display = "none";
+        document.querySelector(".get-data").style.display = "block";
     }
 
     document.getElementById("login-form").addEventListener("submit", function(event) {
@@ -214,22 +215,24 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
             body: formData
         })
         .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Set cookie and show content
-                document.cookie = "loggedin=true; expires=" + new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000).toUTCString() + "; path=/";
-                document.getElementById('login-container').style.display = 'none';
-                document.getElementById('content').style.display = 'block';
-                document.querySelector('.login-warper').style.display = 'none';
-                document.querySelector(".get-data").style.display = "none";
-            } else {
-                document.getElementById('error-message').innerText = "Invalid username or password. Please try again.";
-                document.getElementById('error-message').style.display = 'block';
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        // Inside the fetch function where the user logs in successfully
+.then(data => {
+    if (data.success) {
+        // Set cookie and show content
+        document.cookie = "loggedin=true; expires=" + new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000).toUTCString() + "; path=/";
+        document.getElementById('login-container').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+        document.querySelector('.login-warper').style.display = 'none';
+        document.querySelector(".get-data").style.display = "block";
+
+        // Hide the upload form when logged in
+        document.querySelector(".upload-form").style.display = "none";
+    } else {
+        document.getElementById('error-message').innerText = "Invalid username or password. Please try again.";
+        document.getElementById('error-message').style.display = 'block';
+    }
+})
+
     });
     // Prevent form submission on Enter key press
     document.getElementById("login-form").addEventListener("keydown", function(event) {
