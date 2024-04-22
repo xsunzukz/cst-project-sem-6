@@ -49,7 +49,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     <div class="form-warper">
 <div class="upload-form" style="display: block;">
     <h2>Create Class</h2>
-    <form action="./events/upload_class.php" method="post">
+    <form action="./events/upload_class.php" method="post" onsubmit="return validateTime('start_time', 'end_time');">
         <label for="topic">Topic:</label>
         <input type="text" id="topic" name="topic" required>
         
@@ -97,7 +97,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
 </div>
 <div class="edit-form">
     <h2>Edit Class</h2>
-    <form action="./events/edit_class.php" method="post">
+    <form action="./events/edit_class.php" method="post" onsubmit="return validateTime('edit_start_time', 'edit_end_time');">
         <label for="edit_id">Class ID:</label>
         <input type="number" id="edit_id" name="edit_id" required>
         
@@ -325,7 +325,22 @@ function populateEditForm(data) {
     }
 }
 
+function validateTime(startTimeId, endTimeId) {
+            // Get the start time and end time values
+            const startTime = document.getElementById(startTimeId).value;
+            const endTime = document.getElementById(endTimeId).value;
 
+            // Convert the time strings to Date objects for comparison
+            const startDate = new Date(startTime);
+            const endDate = new Date(endTime);
+
+            // Check if end time is greater than start time
+            if (endDate <= startDate) {
+                alert('End time must be greater than start time.');
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission if validation passes
+        }
 
 </script>
 
