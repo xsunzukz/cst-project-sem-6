@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -108,7 +107,7 @@
     include './connection-files/db_classes_conn.php';
 
     // Check if the form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['class_id']) && isset($_POST['dept_name'])) {
         // Get the form data
         $classId = $_POST['class_id'];
         $deptName = $_POST['dept_name'];
@@ -148,6 +147,28 @@
         $conn->close();
     }
     ?>
+    <script>
+        function getData() {
+            var form = document.getElementById('getDataForm');
+            var formData = new FormData(form);
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        document.getElementById('resultContainer').innerHTML = xhr.responseText;
+                    } else {
+                        document.getElementById('resultContainer').innerHTML = '<div class="error-box"><p>Error fetching data</p></div>';
+                    }
+                }
+            };
+
+            xhr.open('POST', '', true);
+            xhr.send(formData);
+        }
+    </script>
+
+    <div id="resultContainer"></div>
 </body>
 
 </html>

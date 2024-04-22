@@ -44,6 +44,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
         <button id="create-btn">Create</button>
         <button id="edit-btn">Edit</button>
         <button id="delete-btn">Delete</button>
+        <button id="getdata-btn">Get Data</button>
     </div>
     <div class="form-warper">
 <div class="upload-form" style="display: block;">
@@ -129,14 +130,78 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     </form>
 </div>
 </div>
+<div class="get-data">
+<div class="container" id = 'get-data'>
+        <h2>Get Data:</h2>
+        <form method="post" action="">
+            <label for="class_id">Class ID:</label>
+            <input type="number" id="class_id" name="class_id" required>
+            <label for="dept_name">Department:</label>
+            <select id="dept_name" name="dept_name" required>
+                <option value="">Select Department</option>
+                <option value="CST">CST</option>
+                <option value="CFS">CFS</option>
+                <option value="ID">ID</option>
+                <option value="ELECTRICAL">ELECTRICAL</option>
+                <option value="MECHATRONICS">MECHATRONICS</option>
+            </select>
+            <input type="submit" value="Get Info">
+        </form>
+    </div>
 
+    <?php
+    // Include your database connection file
+    include './connection-files/db_classes_conn.php';
+
+    // Check if the form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Get the form data
+        $classId = $_POST['class_id'];
+        $deptName = $_POST['dept_name'];
+
+        // Construct the table name based on the input values
+        $tableName = $deptName . ' _class_' . $classId;
+
+        // Query to check if the table exists
+        $checkTableSql = "SHOW TABLES LIKE '$tableName'";
+        $tableExists = $conn->query($checkTableSql);
+
+        if ($tableExists->num_rows > 0) {
+            // Query to fetch data from the existing table
+            $sql = "SELECT * FROM `$tableName`"; // Enclose table name in backticks to handle spaces
+            $result = $conn->query($sql);
+
+            // Display the fetched data in a table
+            if ($result->num_rows > 0) {
+                echo '<table>';
+                echo '<tr><th>ID</th><th>Name</th><th>Attendance Status</th></tr>';
+                while ($row = $result->fetch_assoc()) {
+                    echo '<tr>';
+                    echo '<td>' . $row['id'] . '</td>';
+                    echo '<td>' . $row['email'] . '</td>';
+                    echo '<td>' . $row['status_attend'] . '</td>';
+                    echo '</tr>';
+                }
+                echo '</table>';
+            } else {
+                echo '<div class="error-box"><p>No data found for the specified class</p></div>';
+            }
+        } else {
+            echo '<div class="error-box"><p>The specified class does not exist</p></div>';
+        }
+
+        // Close the database connection
+        $conn->close();
+    }
+    ?>
+</div>
 <script>
     document.getElementById('edit_dept').style.display = "none";
-    // Check if cookie exists and skip login form if it does
     if (document.cookie.includes('loggedin=true')) {
         document.getElementById('login-container').style.display = 'none';
         document.getElementById('content').style.display = 'block';
         document.querySelector('.login-warper').style.display = 'none'; // Add this line to hide the login wrapper
+        document.querySelector(".get-data").style.display = "none";
     }
 
     document.getElementById("login-form").addEventListener("submit", function(event) {
@@ -155,7 +220,8 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                 document.cookie = "loggedin=true; expires=" + new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000).toUTCString() + "; path=/";
                 document.getElementById('login-container').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
-                document.querySelector('.login-warper').style.display = 'none'; // Hide the login wrapper
+                document.querySelector('.login-warper').style.display = 'none';
+                document.querySelector(".get-data").style.display = "none";
             } else {
                 document.getElementById('error-message').innerText = "Invalid username or password. Please try again.";
                 document.getElementById('error-message').style.display = 'block';
@@ -176,21 +242,31 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
         document.querySelector(".upload-form").style.display = "block";
         document.querySelector(".edit-form").style.display = "none";
         document.querySelector(".delete-form").style.display = "none";
-        document.title = "Create Class - Admin Panel"; // Change title
+        document.querySelector(".get-data").style.display = "none";
+        document.title = "Create Class - Admin Panel";
     });
 
     document.getElementById("edit-btn").addEventListener("click", function() {
         document.querySelector(".upload-form").style.display = "none";
         document.querySelector(".edit-form").style.display = "block";
         document.querySelector(".delete-form").style.display = "none";
-        document.title = "Edit Class - Admin Panel"; // Change title
+        document.querySelector(".get-data").style.display = "none";
+        document.title = "Edit Class - Admin Panel";
     });
 
     document.getElementById("delete-btn").addEventListener("click", function() {
         document.querySelector(".upload-form").style.display = "none";
         document.querySelector(".edit-form").style.display = "none";
         document.querySelector(".delete-form").style.display = "block";
-        document.title = "Delete Class - Admin Panel"; // Change title
+        document.querySelector(".get-data").style.display = "none";
+        document.title = "Delete Class - Admin Panel";
+    });
+    document.getElementById("getdata-btn").addEventListener("click", function() {
+        document.querySelector(".get-data").style.display = "block";
+        document.querySelector(".upload-form").style.display = "none";
+        document.querySelector(".edit-form").style.display = "none";
+        document.querySelector(".delete-form").style.display = "none";
+        document.title = "Get Data of Classes - Admin Panel";
     });
     document.getElementById("edit_id").addEventListener("input", handleClassIdChange);
 

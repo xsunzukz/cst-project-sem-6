@@ -220,3 +220,72 @@ input[type="submit"]:hover {
     border-color: #ff7300; /* Change border color on focus */
     outline: none; /* Remove default focus outline */
 }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 2px solid #ff7300;
+    border-radius: 8px;
+}
+
+h2 {
+    color: #ff7300;
+    margin-bottom: 20px;
+}
+
+input[type="number"],
+select,
+input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ff7300;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #ff7300;
+    color: white;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #ff7300;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #ff7300;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #ffe5cc; /* Light #ff7300 */
+}
+
+.error-box {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid red;
+    border-radius: 8px;
+    background-color: #ffe6e6; /* Light red background */
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
