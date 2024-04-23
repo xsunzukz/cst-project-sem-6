@@ -33,6 +33,7 @@ if(isset($_COOKIE['user_email']) && isset($_COOKIE['user_password'])) {
 </div>
 
 <p class="register-link">Don't have an account? <a href="./register.php">Register</a></p>
+<p class="register-link"><a href="./admin.php">Faculty Loggin</a></p>
 </form>
 </div>
 
