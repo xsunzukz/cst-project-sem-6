@@ -146,7 +146,16 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                 <option value="MECHATRONICS">MECHATRONICS</option>
             </select>
             <input type="submit" value="Get Info">
+            <input type="button" value="Download CSV" id="downloadCSV" class= 'btn-download'>
         </form>
+        <script>
+document.getElementById('downloadCSV').addEventListener('click', function() {
+    var form = document.querySelector('.get-data form');
+    form.action = 'download-csv.php'; // Point to the PHP script that will generate the CSV
+    form.submit();
+});
+</script>
+
     </div>
 
     <?php
@@ -194,6 +203,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
         $conn->close();
     }
     ?>
+    
 </div>
 <script>
     document.getElementById('edit_dept').style.display = "none";
