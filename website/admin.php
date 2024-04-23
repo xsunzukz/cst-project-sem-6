@@ -326,21 +326,38 @@ function populateEditForm(data) {
 }
 
 function validateTime(startTimeId, endTimeId) {
-            // Get the start time and end time values
-            const startTime = document.getElementById(startTimeId).value;
-            const endTime = document.getElementById(endTimeId).value;
+    // Get the start time and end time values
+    const startTimeInput = document.getElementById(startTimeId);
+    const endTimeInput = document.getElementById(endTimeId);
+    
+    // Check if the input fields are not empty
+    if (!startTimeInput.value || !endTimeInput.value) {
+        alert('Please enter both start time and end time.');
+        return false; // Prevent form submission
+    }
 
-            // Convert the time strings to Date objects for comparison
-            const startDate = new Date(startTime);
-            const endDate = new Date(endTime);
+    // Get the current time
+    const now = new Date();
+    const currentTime = now.getTime();
 
-            // Check if end time is greater than start time
-            if (endDate <= startDate) {
-                alert('End time must be greater than start time.');
-                return false; // Prevent form submission
-            }
-            return true; // Allow form submission if validation passes
-        }
+    // Convert the input time strings to Date objects for comparison
+    const startTime = new Date(startTimeInput.value).getTime();
+    const endTime = new Date(endTimeInput.value).getTime();
+
+    // Check if start time is in the past
+    if (startTime < currentTime) {
+        alert('Start time cannot be in the past.');
+        return false; // Prevent form submission
+    }
+
+    // Check if end time is greater than start time
+    if (endTime <= startTime) {
+        alert('End time must be greater than start time.');
+        return false; // Prevent form submission
+    }
+    return true; // Allow form submission if validation passes
+}
+
 
 </script>
 
