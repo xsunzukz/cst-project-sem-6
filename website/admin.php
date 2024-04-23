@@ -97,7 +97,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
 </div>
 <div class="edit-form">
     <h2>Edit Class</h2>
-    <form action="./events/edit_class.php" method="post" onsubmit="return validateTime('edit_start_time', 'edit_end_time');">
+    <form action="./events/edit_class.php" method="post">
         <label for="edit_id">Class ID:</label>
         <input type="number" id="edit_id" name="edit_id" required>
         
