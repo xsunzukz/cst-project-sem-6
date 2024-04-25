@@ -22,6 +22,11 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     <title>Login - Admin Panel</title>
 </head>
 <body>
+<nav>
+        <ul>
+            <li><a href="#create">SmartTrack - Admin Panel</a></li>
+        </ul>
+    </nav>
     <div class="login-warper">
     <div id="login-container" style="display: <?php echo $loginDisplayStyle; ?>;">
     <h2>Login</h2>

@@ -1,4 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* Basic reset for list styles */
+nav ul, nav li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Style the navigation bar */
+nav {
+    background-color: #333; /* Change the background color as needed */
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+nav li {
+    margin-right: 10px;
+}
+
+nav a {
+    color: #fff; /* Text color for links */
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #555; /* Hover background color */
+}
+
 body {
     font-family:  "Montserrat", sans-serif;
     background-color: #f2f2f2;
