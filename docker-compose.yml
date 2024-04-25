@@ -9,6 +9,8 @@ services:
       - MYSQL_ALLOW_EMPTY_PASSWORD=1
     volumes:
       - "./db:/docker-entrypoint-initdb.d"
+    ports:
+      - 9000:3306  # Expose MySQL port for external access
   www:
     build: .
     volumes:
