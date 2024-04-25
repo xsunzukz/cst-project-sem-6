@@ -146,6 +146,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
                 <option value="MECHATRONICS">MECHATRONICS</option>
             </select>
             <input type="submit" value="Get Info">
+            <br>
             <input type="button" value="Download CSV" id="downloadCSV" class= 'btn-download'>
         </form>
         <script>
