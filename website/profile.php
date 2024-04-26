@@ -220,6 +220,7 @@ mysqli_close($conn);
     const fileInput = document.getElementById('fileInput');
     const file = fileInput.files[0];
     const id = <?php echo $id; ?>; // Assuming $id is available in your PHP code
+    const userEmail = "<?php echo $mail ?>"; // Get the user's email
 
     // Check if a file is selected
     if (!file) {
@@ -227,26 +228,16 @@ mysqli_close($conn);
         return;
     }
 
-    // Check if the selected file is a JPEG or PNG image
-    const allowedTypes = ['image/jpeg', 'image/png'];
-    if (!allowedTypes.includes(file.type)) {
-        alert('Please select a JPEG or PNG image.');
-        return;
-    }
-
-    // Check if more than one file is selected
-    if (fileInput.files.length > 1) {
-        alert('Please select only one file.');
-        return;
-    }
+    // Extract the file extension
+    const extension = file.name.split('.').pop(); // Get the original file extension
 
     // Generate a dynamic filename (e.g., using current timestamp)
-    const extension = file.name.split('.').pop(); // Get the original file extension
-    const filename = "<?php echo $reg_no ?>." + extension;
+    const filename = userEmail + '.' + extension; // Include the user's email and extension in the filename
 
     const formData = new FormData();
     formData.append('file', file, filename); // Include the dynamically generated filename
     formData.append('id', id); // Append the id to the FormData object
+    formData.append('email', userEmail); // Append the user's email to the FormData object
 
     // Send the file to the server using AJAX
     fetch('./events/upload_profile_photo.php', {
@@ -262,6 +253,7 @@ mysqli_close($conn);
         console.error('Error:', error);
     });
 }
+
 
     </script>
 
