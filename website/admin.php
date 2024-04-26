@@ -165,50 +165,68 @@ document.getElementById('downloadCSV').addEventListener('click', function() {
     </div>
 
     <?php
-    // Include your database connection file
-    include './connection-files/db_classes_conn.php';
+// Include your database connection file
+include './connection-files/db_classes_conn.php';
 
-    // Check if the form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Get the form data
-        $classId = $_POST['class_id'];
-        $deptName = $_POST['dept_name'];
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the form data
+    $classId = $_POST['class_id'];
+    $deptName = $_POST['dept_name'];
 
-        // Construct the table name based on the input values
-        $tableName = $deptName . ' _class_' . $classId;
+    // Construct the table name based on the input values
+    $tableName = $deptName . ' _class_' . $classId;
 
-        // Query to check if the table exists
-        $checkTableSql = "SHOW TABLES LIKE '$tableName'";
-        $tableExists = $conn->query($checkTableSql);
+    // Query to check if the table exists
+    $checkTableSql = "SHOW TABLES LIKE '$tableName'";
+    $tableExists = $conn->query($checkTableSql);
 
-        if ($tableExists->num_rows > 0) {
-            // Query to fetch data from the existing table
-            $sql = "SELECT * FROM `$tableName`"; // Enclose table name in backticks to handle spaces
-            $result = $conn->query($sql);
+    if ($tableExists->num_rows > 0) {
+        // Query to fetch data from the existing table
+        $sql = "SELECT * FROM `$tableName`"; // Enclose table name in backticks to handle spaces
+        $result = $conn->query($sql);
 
-            // Display the fetched data in a table
-            if ($result->num_rows > 0) {
-                echo '<table>';
-                echo '<tr><th>ID</th><th>Name</th><th>Attendance Status</th></tr>';
-                while ($row = $result->fetch_assoc()) {
-                    echo '<tr>';
-                    echo '<td>' . $row['id'] . '</td>';
-                    echo '<td>' . $row['email'] . '</td>';
-                    echo '<td>' . $row['status_attend'] . '</td>';
-                    echo '</tr>';
+        // Display the fetched data in a table
+        if ($result->num_rows > 0) {
+            echo '<table>';
+            echo '<tr><th>ID</th><th>Email</th><th>Name</th><th>Registration Number</th><th>Attendance Status</th></tr>';
+            while ($row = $result->fetch_assoc()) {
+                echo '<tr>';
+                echo '<td>' . $row['id'] . '</td>';
+                echo '<td>' . $row['email'] . '</td>';
+                
+                // Fetch name from student_info based on email
+                $email = $row['email'];
+                $nameQuery = "SELECT name , registration_number FROM student_info WHERE email = '$email'";
+                $nameResult = $conn->query($nameQuery);
+
+                if ($nameResult->num_rows > 0) {
+                    $nameRow = $nameResult->fetch_assoc();
+                    $name = $nameRow['name'];
+                    $reg_no = $nameRow['registration_number'];
+                } else {
+                    $name = 'N/A'; // Set a default value if name is not found
+                    $reg_no = 'N/A';
                 }
-                echo '</table>';
-            } else {
-                echo '<div class="error-box"><p>No data found for the specified class</p></div>';
-            }
-        } else {
-            echo '<div class="error-box"><p>The specified class does not exist</p></div>';
-        }
 
-        // Close the database connection
-        $conn->close();
+                echo '<td>' . $name . '</td>'; // Display name in the table
+                echo '<td>' . $reg_no . '</td>'; // Display name in the table
+
+                echo '<td>' . $row['status_attend'] . '</td>';
+                echo '</tr>';
+            }
+            echo '</table>';
+        } else {
+            echo '<div class="error-box"><p>No data found for the specified class</p></div>';
+        }
+    } else {
+        echo '<div class="error-box"><p>The specified class does not exist</p></div>';
     }
-    ?>
+
+    // Close the database connection
+    $conn->close();
+}
+?>
     
 </div>
 <script>
