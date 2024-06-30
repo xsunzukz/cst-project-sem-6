@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $csvHandler = fopen($csvFile, 'w');
 
             // Write CSV header
-            fputcsv($csvHandler, ['ID', 'Email', 'Name', 'Registration Number', 'Attendance Status']);
+            fputcsv($csvHandler, ['ID', 'Email', 'Name', 'Registration Number', 'Attendance Status', 'Attendance Time']);
 
             // Fetch and write CSV data
             while ($row = $result->fetch_assoc()) {
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
 
                 // Write CSV data
-                fputcsv($csvHandler, [$row['id'], $email, $name, $reg_no, $row['status_attend']]);
+                fputcsv($csvHandler, [$row['id'], $email, $name, $reg_no, $row['status_attend'], $row['attendance_date_time']]);
             }
 
             // Close CSV file
