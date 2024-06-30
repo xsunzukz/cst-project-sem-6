@@ -28,7 +28,8 @@ if(isset($_POST['topic'], $_POST['teacher'], $_POST['description'], $_POST['dept
         $createTableSQL = "CREATE TABLE `$dept _class_$class_id` (
             id INT AUTO_INCREMENT PRIMARY KEY,
             status_attend Varchar(50) not null,
-            email Varchar(50) not null
+            email Varchar(50) not null,
+            attendance_date_time Varchar(50) not null
         )";
 
 

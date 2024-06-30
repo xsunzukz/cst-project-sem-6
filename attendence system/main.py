@@ -4,6 +4,7 @@ from deepface import DeepFace
 import os
 import mysql.connector
 import webbrowser
+import datetime
 
 # Set known faces folder
 known_faces_folder = "D:/cst-project-sem-6/website/pfp-photos"
@@ -49,7 +50,6 @@ def save_webcam_image():
     except Exception as e:
         print("Error capturing image from webcam:", e)
         return None
-
 def select_image():
     # Capture an image from the webcam and save it to a temporary file
     temp_file_path = save_webcam_image()
@@ -95,8 +95,10 @@ def verify_and_display():
                             messagebox.showwarning("Data Exists", "Your attendance has already been marked.")
                         else:
                             try:
-                                cursor.execute(f"INSERT INTO `{table_name}` (email, status_attend) VALUES (%s, %s)",
-                                               (email, status_attended))
+                                now = datetime.datetime.now()
+                                formatted_now = now.strftime("%Y-%m-%d %H:%M:%S")
+                                cursor.execute(f"INSERT INTO `{table_name}` (email, status_attend, attendance_date_time) VALUES (%s, %s, %s)",
+                                               (email, status_attended, formatted_now))
                                 db_connection.commit()
                             except mysql.connector.Error as e:
                                 messagebox.showerror("SQL Error", f"Error inserting data: {e}")
@@ -161,7 +163,7 @@ input_frame.pack(pady=20)
 image1_path_var = StringVar()
 
 # Create a dropdown menu for selecting department
-dept_options = ["Select Department", "CST", "CFS", "ID", "ELECTRICAL", "MECHATRONICS"]
+dept_options = ["CST", "CFS", "ID", "ELECTRICAL", "MECHATRONICS"]
 selected_dept = StringVar()
 selected_dept.set(dept_options[0])  # Set default value
 dept_label = Label(input_frame, text="Select Department:", bg="#ebebeb", fg="#333", font=("Montserrat", 12, "bold"))
@@ -204,9 +206,7 @@ result_label.pack(pady=20)
 # Define the custom style for the buttons
 root.style = ttk.Style()
 root.style.theme_use("clam")
-# Define the custom style for the buttons
-# Define the custom style for the buttons
-# Define the custom style for the buttons
+
 root.style.configure(
     "Custom.TButton",
     foreground="#ebebebebebeb",

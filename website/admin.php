@@ -189,7 +189,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Display the fetched data in a table
         if ($result->num_rows > 0) {
             echo '<table>';
-            echo '<tr><th>ID</th><th>Email</th><th>Name</th><th>Registration Number</th><th>Attendance Status</th></tr>';
+            echo '<tr><th>ID</th><th>Email</th><th>Name</th><th>Registration Number</th><th>Attendance Status</th><th>Attendance Time</th></tr>';
             while ($row = $result->fetch_assoc()) {
                 echo '<tr>';
                 echo '<td>' . $row['id'] . '</td>';
@@ -213,6 +213,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo '<td>' . $reg_no . '</td>'; // Display name in the table
 
                 echo '<td>' . $row['status_attend'] . '</td>';
+                echo '<td>' . $row['attendance_date_time'] . '</td>';
                 echo '</tr>';
             }
             echo '</table>';
